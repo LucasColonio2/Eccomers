@@ -1,14 +1,15 @@
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Button from './components/Button';
-import Counter from './components/Counter';
-function App() {
- 
 
+function App() {
   return (
-    Counter
+    <div>
+      <Button label= 'Esto viene por props'/>
+      <Button label= 'Login' bg={"blue"}/>
+      <Button label= 'Cancelar' bg= {'green'} />
+      <Button label= 'Registrar' bg={'red'}/>
+    </div>
   )
 }
 

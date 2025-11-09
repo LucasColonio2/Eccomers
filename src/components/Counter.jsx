@@ -1,10 +1,7 @@
-import {useState} from "react"
-
-function Counter (){
+export default function Counter (props){
+    console.log (props)
     const [counter, setCounter]= useState(0)
- 
-    
-let counter =10
+let i =10
 const handleAdd= ()=> {
     counter ++
 }
@@ -17,4 +14,3 @@ const handleAdd= ()=> {
         </div>
     )
 }
-export default Counter  

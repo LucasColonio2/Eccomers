@@ -5,6 +5,6 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render( //trae al div de id root del html
   <StrictMode>
-    <App />
+    <App/>
   </StrictMode>,
 )
