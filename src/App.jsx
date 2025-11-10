@@ -1,15 +1,14 @@
 
-import './App.css'
 import Button from './components/Button';
+import Navbar from './components/Navbar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    <div>
-      <Button label= 'Esto viene por props'/>
-      <Button label= 'Login' bg={"blue"}/>
-      <Button label= 'Cancelar' bg= {'green'} />
-      <Button label= 'Registrar' bg={'red'}/>
-    </div>
+    <>
+      <Navbar />
+      <ItemListContainer text ='FUTUROS PRODUCTOS'/>
+    </>
   )
 }
 

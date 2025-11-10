@@ -1,0 +1,38 @@
+.Navegador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #81c9fa;
+    padding: 1rem 2rem;
+}
+
+.Logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.Categorias {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.Categorias li {
+    cursor: pointer;
+}
+
+.Categorias li:hover {
+    color: #f39c12;
+}
+
+.Iconcarrito { position: relative; } 
+
+.Badge {
+  position: absolute;
+  top: -6px; right: -6px;
+  min-width: 18px; height: 18px;
+  display: grid; place-items: center;
+  font-size: 12px; border-radius: 999px;
+  background: #f39c12; color: #111;
+}

@@ -1,14 +1,13 @@
-/* export default function Button ({label, bg}){
-    return(
-    <button  
-    style={{backgroundColor: bg}}>
-        {label}</button>
-    )
-} */
 
 export default function Button ({label, bg}){
     return (
-        <button style={{ backgroundColor: bg}}>{label}</button>
+        <button style={{ backgroundColor: bg}}
+        className="pepito"
+        onClick={() => alert ('click!')}
+        >
+            
+            {label}
+        </button>
     )
 }
 
