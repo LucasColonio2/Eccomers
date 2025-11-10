@@ -16,7 +16,9 @@ export default function Navbar (){
             </ul>
 
             <div className={styles.Iconcarrito}>
+            
             <CartWidget />
+
             <span className={styles.Badge}>3</span>
             
             </div>
