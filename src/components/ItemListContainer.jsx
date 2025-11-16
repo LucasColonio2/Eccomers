@@ -1,9 +1,13 @@
+import { useState, useEffect } from 'react'
+import Itemlist from './ItemList'
+
 const products = [
     // 👩‍🦰 Mujeres
     {
         id: 1,
         categoria: "mujeres",
         nombre: "Campera de cuero ecológico",
+        imagen: "https://picsum.photos/seed/producto1/400/300",
         precio: 42000,
         descripcion: "Campera negra de cuero ecológico con cierre metálico y forro interno suave."
     },
@@ -11,6 +15,7 @@ const products = [
         id: 2,
         categoria: "mujeres",
         nombre: "Jean Mom Fit",
+        imagen: "https://picsum.photos/seed/producto1/400/300",
         precio: 31000,
         descripcion: "Jean celeste tiro alto estilo mom fit, ideal para looks casuales."
     },
@@ -18,6 +23,7 @@ const products = [
         id: 3,
         categoria: "mujeres",
         nombre: "Blusa de seda con lazo",
+        imagen: "https://picsum.photos/seed/producto1/400/300",
         precio: 28000,
         descripcion: "Blusa elegante de seda con lazo al cuello y mangas largas."
     },
@@ -28,6 +34,7 @@ const products = [
         id: 4,
         categoria: "hombres",
         nombre: "Camisa de lino blanca",
+        imagen: "https://picsum.photos/seed/producto1/400/300",
         precio: 33500,
         descripcion: "Camisa liviana de lino 100% natural, ideal para clima cálido."
     },
@@ -94,14 +101,27 @@ const products = [
 
 ];
 
-
 export default function ItemListContainer({ text }) {
+    const [items, setItems] = useState([])
 
+    const obtenerproductos = () => new Promise((resolve, reject) => {
+        if (products.length > 0) {
+            setTimeout(() => {
+
+                resolve(products)
+            }, 3000);
+
+        } else {
+            reject("NO se encontraron productos")
+        }
+    })
+
+    useEffect(() => {
+        obtenerproductos()
+            .then(data => setItems(data))
+    }, [])
 
     return (
-        <div>
-            {products.map(prod => <p key={prod.id}>{prod.nombre}</p>)}
-            <h2>{text}</h2>
-        </div>
+        <Itemlist items= {items} />
     );
 }
