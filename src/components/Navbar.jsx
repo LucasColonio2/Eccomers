@@ -1,18 +1,19 @@
 import CartWidget from './CartWidget';
-import styles from './Navbar.module.css';
+import styles from '../style/Navbar.module.css';
 
-export default function Navbar() {
+export default function Navbar({categorias}) {
+  
+
     return (
 
         <nav className={styles.Navegador}>
-
+            
             <h1 className={styles.Logo}>KAZEOVER</h1>
 
             <ul className={styles.Categorias}>
-                <li> <a href="#">Mujeres</a> </li>
-                <li> <a href="#">Hombres</a>  </li>
-                <li> <a href="#">Ninos</a>  </li>
-                <li> <a href="#">Bebes</a>  </li>
+                {categorias.map(cat =>(
+                    <li href="#"> {cat} </li>
+                ) )}
             </ul>
 
             <div className={styles.Iconcarrito}>

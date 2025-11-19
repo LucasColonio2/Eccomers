@@ -2,16 +2,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from './components/Button';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
-import TaskList from './components/TaskList';
-import CicloDeVida from './components/CicloDeVida';
+import FootBar from './components/FootBar';
+import NavBarContainer from './components/NavBarContainer';
 
 function App() {
   return (
     <>
-      <Navbar/>
+      <NavBarContainer/>
       <ItemListContainer/>
-      <TaskList/>
-      <CicloDeVida/>
+      <FootBar/>
     </>
   )
 }
