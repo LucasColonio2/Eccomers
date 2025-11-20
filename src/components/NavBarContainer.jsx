@@ -9,7 +9,7 @@ export default function NavBarContainer() {
             .then(data => setCategorias(data));
     }, [])
     return (
-        <Navbar categorias={categorias}/>
+        <Navbar categorias={categorias} />
 
     )
 }

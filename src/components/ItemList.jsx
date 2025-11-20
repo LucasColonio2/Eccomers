@@ -29,5 +29,5 @@ export default function ItemList({ items }) {
 
             </Row>
         </Container>
-        )
-    }
+    )
+}

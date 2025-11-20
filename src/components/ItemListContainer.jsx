@@ -8,17 +8,17 @@ const ItemListWithLoading = withLoading(ItemList)
 
 export default function ItemListContainer({ text }) {
   const [items, setItems] = useState([])
-  const {categoryName} = useParams ()
+  const { categoryName } = useParams()
 
 
   useEffect(() => {
-    const urlCategories =`https://dummyjson.com/products/category/${categoryName}`
-    const urlBase ='https://dummyjson.com/products'
+    const urlCategories = `https://dummyjson.com/products/category/${categoryName}`
+    const urlBase = 'https://dummyjson.com/products'
 
-    fetch (categoryName ? urlCategories : urlBase)
-    .then(res => res.json())
-    .then(data => setItems(data.products));
-    }, [categoryName])
+    fetch(categoryName ? urlCategories : urlBase)
+      .then(res => res.json())
+      .then(data => setItems(data.products));
+  }, [categoryName])
 
   return (
     <ItemList items={items} />

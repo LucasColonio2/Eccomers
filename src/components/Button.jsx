@@ -1,11 +1,11 @@
 
-export default function Button ({label, bg}){
+export default function Button({ label, bg }) {
     return (
-        <button style={{ backgroundColor: bg}}
-        className="pepito"
-        onClick={() => alert ('click!')}
+        <button style={{ backgroundColor: bg }}
+            className="pepito"
+            onClick={() => alert('click!')}
         >
-            
+
             {label}
         </button>
     )

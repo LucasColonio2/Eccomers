@@ -1,6 +1,6 @@
-export default function Loader ({render}){
+export default function Loader({ render }) {
     console.log("Loading")
-    return render (
+    return render(
 
     )
 
