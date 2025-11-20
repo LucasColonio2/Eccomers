@@ -1,22 +1,26 @@
 import { useState, useEffect } from 'react'
 import ItemList from './ItemList'
-import {withLoading} from '../hoc/withLoading'
+import { withLoading } from '../hoc/withLoading'
 import Loader from "./Loader"
+import { useParams } from 'react-router'
 
-const ItemListWithLoading = withLoading(ItemList) 
+const ItemListWithLoading = withLoading(ItemList)
 
 export default function ItemListContainer({ text }) {
-    const [items, setItems] = useState([])
+  const [items, setItems] = useState([])
+  const {categoryName} = useParams ()
 
 
-    useEffect(() => {
-      fetch('https://dummyjson.com/products')
-            .then(res => res.json())
-            .then(data=> setItems(data.products));
-    }, [])
+  useEffect(() => {
+    const urlCategories =`https://dummyjson.com/products/category/${categoryName}`
+    const urlBase ='https://dummyjson.com/products'
 
-    return (
-       //<ItemListWithLoading items={items} />
-       <Loader render = { () => <ItemList items = {items} /> } />
-    );
+    fetch (categoryName ? urlCategories : urlBase)
+    .then(res => res.json())
+    .then(data => setItems(data.products));
+    }, [categoryName])
+
+  return (
+    <ItemList items={items} />
+  );
 }

@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router';
 
 
 
@@ -20,7 +21,7 @@ export default function ItemList({ items }) {
                                     {item.price}
                                     {item.description}
                                 </Card.Text>
-                                <Button variant="primary">Ver mas</Button>
+                                <Link to={`/detail/${item.id}`}> Ver mas</Link>
                             </Card.Body>
                         </Card>
                     </Col>

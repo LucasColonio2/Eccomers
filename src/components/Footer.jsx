@@ -1,5 +1,5 @@
 
-export default function FootBar (){
+export default function Footer (){
       return (
     
           <footer>
