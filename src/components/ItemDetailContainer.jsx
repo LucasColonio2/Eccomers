@@ -4,6 +4,7 @@ import ItemDetail from './ItemDetail';
 
 export default function ItemDetailContainer() {
     const [item, setItem] = useState()
+   
     const { id } = useParams()
     useEffect(() => {
         fetch(`https://dummyjson.com/products/${id}`)

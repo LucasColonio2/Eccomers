@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react'
 import ItemList from './ItemList'
-import { withLoading } from '../hoc/withLoading'
-import Loader from "./Loader"
 import { useParams } from 'react-router'
 
-const ItemListWithLoading = withLoading(ItemList)
 
 export default function ItemListContainer({ text }) {
   const [items, setItems] = useState([])

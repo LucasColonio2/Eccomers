@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import NavBarContainer from './components/NavBarContainer';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Toolbar from '@mui/material/Toolbar';
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
       <Routes>
         <Route path='/' element={<ItemListContainer />}> </Route>
         <Route path='/detail/:id' element={<ItemDetailContainer/>}> </Route>
+
         <Route path='/category/:categoryName' element={<ItemListContainer/>}> </Route>
+
+
       </Routes>
 
       <Footer />
