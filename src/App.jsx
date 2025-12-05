@@ -7,6 +7,8 @@ import NavBarContainer from './components/NavBarContainer';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Toolbar from '@mui/material/Toolbar';
+import CartContainer from './components/CartContainer';
+import CartWidget from './components/CartWidget';
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
         <Route path='/detail/:id' element={<ItemDetailContainer/>}> </Route>
 
         <Route path='/category/:categoryName' element={<ItemListContainer/>}> </Route>
-
+        <Route path='/cart' element={<CartContainer/>}> </Route>
 
       </Routes>
 

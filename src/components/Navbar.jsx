@@ -10,10 +10,19 @@ import styles from '../style/Navbar.module.css';
 import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useContext } from 'react';
+import { primerContext } from '../context/CartContext';
 
 
+export default function Navbar({ categorias, onOpenCart }) {
 
-export default function Navbar({ categorias }) {
+     const { carrito } = useContext(primerContext);
+
+  const quantity = Array.isArray(carrito)
+    ? carrito.reduce((acc, item) => acc + item.quantity, 0)
+    : 0;
+
+
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -30,11 +39,11 @@ export default function Navbar({ categorias }) {
             <AppBar position="fixed">
                 <Toolbar >
 
-                    <Typography 
-                    component={Link} 
-                    to="/"
-                    variant="h4" 
-                    sx={{ color: "white", flexGrow: 0.02,textDecoration: "none"  }}
+                    <Typography
+                        component={Link}
+                        to="/"
+                        variant="h4"
+                        sx={{ color: "white", flexGrow: 0.02, textDecoration: "none" }}
                     >
                         KAZEOVER
                     </Typography>
@@ -62,26 +71,29 @@ export default function Navbar({ categorias }) {
                             },
                         }}
                     >
-                       
+
 
                         {categorias.map(cat => (
-                             <MenuItem 
-                             to={`/category/${cat}`} 
-                             key={cat}
-                             component={Link}
-                             onClick={handleClose}
-                             >
-                            {cat}  
-                             </MenuItem>
+                            <MenuItem
+                                to={`/category/${cat}`}
+                                key={cat}
+                                component={Link}
+                                onClick={handleClose}
+                            >
+                                {cat}
+                            </MenuItem>
                         ))}
 
                     </Menu>
 
 
                     <Button
+                        onClick={onOpenCart}
                         color="inherit">
-                        <CartWidget />
-                        <span className={styles.Badge}>3</span>
+                            <CartWidget/>
+                        <span className={styles.Badge}>
+                            {quantity}
+                        </span>
                     </Button>
 
                 </Toolbar>
@@ -90,26 +102,4 @@ export default function Navbar({ categorias }) {
         </Box>
     );
 
-
-
-    /* 
-            <nav className={styles.Navegador}>
-    
-    
-                
-                
-                <Box>
-    
-                <h1 className={styles.Logo}> <Link to="/">KAZEOVER</Link> </h1>
-                    
-                    <ul className={styles.Categorias}>
-                        {categorias.map(cat => (
-                            <Link to={`/category/${cat}`} key={cat}> {cat}   </Link>
-                        ))}
-                    </ul>
-    
-                </Box>
-    
-            </nav>
-        ) */
 }

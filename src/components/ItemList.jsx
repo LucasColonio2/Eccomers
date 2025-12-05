@@ -29,12 +29,12 @@ export default function ItemList({ items }) {
                                     <CardMedia
                                         component="img"
                                         height="140"
-                                        image={item.thumbnail}
-                                        alt={item.title}
+                                        image={item.img}
+                                        alt={item.name}
                                     />
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="div">
-                                            {item.title}
+                                            {item.name}
                                         </Typography>
                                         <Typography variant="body1">
                                             {item.price}
