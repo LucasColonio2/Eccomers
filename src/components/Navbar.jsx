@@ -73,7 +73,7 @@ export default function Navbar({ categorias, onOpenCart }) {
                     >
 
 
-                        {categorias.map(cat => (
+                        {categorias.map((cat) => (
                             <MenuItem
                                 to={`/category/${cat}`}
                                 key={cat}
