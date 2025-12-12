@@ -19,13 +19,16 @@ export default function Navbar({ categorias, onOpenCart }) {
      const { carrito } = useContext(primerContext);
 
   const quantity = Array.isArray(carrito)
-    ? carrito.reduce((acc, item) => acc + item.quantity, 0)
+    ? carrito.reduce((acc, item) => acc + item.count, 0)
     : 0;
 
 
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    
+    
+    
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };

@@ -10,6 +10,8 @@ import CardActionArea from "@mui/material/CardActionArea"
 import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { formatPrice } from '../utils/formatPrice';
+
 
 export default function ItemList({ items }) {
     return (
@@ -37,13 +39,16 @@ export default function ItemList({ items }) {
                                             {item.name}
                                         </Typography>
                                         <Typography variant="body1">
-                                            {item.price}
+                                            {formatPrice (item.price)}
 
                                         </Typography>
                                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                                             {item.description}
                                         </Typography>
                                     </CardContent>
+                                
+                                
+                                
                                 </CardActionArea>
 
 

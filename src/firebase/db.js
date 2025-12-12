@@ -5,7 +5,8 @@ import {
   query,
   where,
   doc,
-  getDoc
+  getDoc,
+  addDoc
   
 } from "firebase/firestore";
 
@@ -62,7 +63,7 @@ const docRef = doc(db, "Productos", id);
 const docSnap = await getDoc(docRef);
 
 if (docSnap.exists()) {
-  setItem({...docSnap.data(), id: doc.id})
+  setItem({...docSnap.data(), id: docSnap.id})
 } else {
   console.log("Colocar ALERT");
 }
@@ -70,4 +71,16 @@ if (docSnap.exists()) {
 
 }
 
+//Funcion para obtener una orden
+export const createOrder = async (order) =>  {
+console.log (order)
+try {
+  const docRef = await addDoc(collection(db, "orders"), order)
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
 
+
+}
+
+}

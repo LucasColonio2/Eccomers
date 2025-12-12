@@ -12,6 +12,11 @@ import ListItemText from "@mui/material/ListItemText";
 import { primerContext } from "../context/CartContext";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
+import { formatPrice } from "../utils/formatPrice";
+import Checkout from "./Checkout";
+import { Link } from "react-router";
+
+
 
 export default function CartDrawer({ open, onClose }) {
     const { carrito, addToCart, removeOneFromCart, clearCart, total } =
@@ -36,11 +41,8 @@ export default function CartDrawer({ open, onClose }) {
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
                     Carrito
                 </Typography>
-
                 <IconButton onClick={onClose} sx={{ color: "#fff" }}>
-
                     <CloseIcon />
-
                 </IconButton>
             </Box>
 
@@ -85,8 +87,10 @@ export default function CartDrawer({ open, onClose }) {
                                         >
                                             {prod.title}
                                         </Typography>
+                                        
                                         <Typography variant="caption" sx={{ color: "#bbb" }}>
-                                            {prod.quantity} x ${prod.price ?? 0}
+                                            {prod.count}  x   
+                                            {formatPrice(prod.price ?? 0)}
                                         </Typography>
                                     </Box>
 
@@ -108,6 +112,8 @@ export default function CartDrawer({ open, onClose }) {
                                             -
                                         </Button>
                                     </Box>
+                               
+                               
                                 </ListItem>
                             ))}
                         </List>
@@ -122,7 +128,7 @@ export default function CartDrawer({ open, onClose }) {
                             }}
                         >
                             <Typography variant="subtitle1">Total:</Typography>
-                            <Typography variant="h6">${total}</Typography>
+                            <Typography variant="h6">{formatPrice(total)}</Typography>
                         </Box>
 
                         <Box sx={{ mt: 2, display: "flex", gap: 1 }}>
@@ -133,6 +139,19 @@ export default function CartDrawer({ open, onClose }) {
                                 onClick={clearCart}
                             >
                                 Vaciar carrito
+                            </Button>
+                        </Box>
+
+                        <Box sx={{ mt: 2, display: "flex", gap: 1 }}>
+                            <Button
+                                fullWidth
+                                variant="outlined"
+                                color="inherit"
+                                component={Link}
+                                onClick={onClose}
+                                to="/checkout"
+                            >
+                                Comprar
                             </Button>
                         </Box>
                     </>

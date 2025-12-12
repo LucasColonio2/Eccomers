@@ -11,11 +11,11 @@ export default function CartProvider({ children }) {
       if (existing) {
         return prev.map((p) =>
           p.id === product.id
-            ? { ...p, quantity: p.quantity + 1 }
+            ? { ...p, count: p.count + 1 }
             : p
         );
       }
-      return [...prev, { ...product, quantity: 1 }];
+      return [...prev, { ...product, count: 1 }];
     });
   };
 
@@ -24,13 +24,13 @@ export default function CartProvider({ children }) {
       const existing = prev.find((p) => p.id === productId);
       if (!existing) return prev;
 
-      if (existing.quantity === 1) {
+      if (existing.count === 1) {
         return prev.filter((p) => p.id !== productId);
       }
 
       return prev.map((p) =>
         p.id === productId
-          ? { ...p, quantity: p.quantity - 1 }
+          ? { ...p, count: p.count - 1 }
           : p
       );
     });
@@ -41,13 +41,15 @@ export default function CartProvider({ children }) {
   };
 
   const total = carrito.reduce(
-    (acc, item) => acc + (item.price || 0) * item.quantity,
-    0
+    (acc, item) => acc + (item.count * item.price),0
   );
+
+
+
 
   return (
     <primerContext.Provider
-      value={{ carrito, addToCart, removeOneFromCart, clearCart, total }}
+      value={{ carrito, addToCart, removeOneFromCart, clearCart,total}}
     >
       {children}
     </primerContext.Provider>

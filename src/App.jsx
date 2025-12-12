@@ -9,10 +9,13 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Toolbar from '@mui/material/Toolbar';
 import CartContainer from './components/CartContainer';
 import CartWidget from './components/CartWidget';
+import Checkout from './components/Checkout';
+
 
 function App() {
   return (
     <BrowserRouter>
+      
       <NavBarContainer />
 
       <Routes>
@@ -21,8 +24,10 @@ function App() {
 
         <Route path='/category/:categoryName' element={<ItemListContainer/>}> </Route>
         <Route path='/cart' element={<CartContainer/>}> </Route>
-
+         <Route path="/checkout" element={<Checkout />} />
+      
       </Routes>
+
 
       <Footer />
     </BrowserRouter>
