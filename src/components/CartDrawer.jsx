@@ -62,7 +62,7 @@ export default function CartDrawer({ open, onClose }) {
                                 >
                                     <Avatar
                                         variant="square"
-                                        src={prod.thumbnail}
+                                        src={prod.img}
                                         alt={prod.title}
                                         sx={{ width: 40, height: 40, mr: 1 }}
                                     />
