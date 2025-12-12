@@ -3,7 +3,10 @@ import {
   collection,
   getDocs,
   query,
-  where
+  where,
+  doc,
+  getDoc
+  
 } from "firebase/firestore";
 
 
@@ -37,16 +40,34 @@ export const getCategorias = async () => {
   }
 
 
+//Funcion obtener productos por categoria
+export const getProductsByCategory = async (categoryName, setItems) => { 
+ const q = query(collection(db, "Productos"), where("category", "==", categoryName));
+const productosporcategoria = []
 
-export const getProductsByCategory = async (category, setItems) => { //Funcion getproductosbycategori
-  const products = [];
 
-  const q = query(collection(db, "Productos"), where("category", "==", category));
+const querySnapshot = await getDocs(q);
+querySnapshot.forEach((doc) => {
+  productosporcategoria.push({ ...doc.data(), id: doc.id });
+})
+  setItems(productosporcategoria)
 
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    products.push({ ...doc.data(), id: doc.id });
-  });
 
-  setItems(products);
-};
+}
+
+
+//Funcion para obtener un producto 
+export const getProduct = async (id, setItem) => {
+const docRef = doc(db, "Productos", id);
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+  setItem({...docSnap.data(), id: doc.id})
+} else {
+  console.log("Colocar ALERT");
+}
+
+
+}
+
+
