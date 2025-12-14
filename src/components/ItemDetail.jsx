@@ -4,7 +4,6 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { formatPrice } from "../utils/formatPrice";
 import { Stack } from "react-bootstrap";
-import Box from '@mui/material/Box';
 
 export default function ItemDetail({ item }) {
     return (

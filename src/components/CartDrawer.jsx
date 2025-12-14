@@ -31,15 +31,17 @@ export default function CartDrawer({ open, onClose }) {
             onClose={onClose}
             PaperProps={{
                 sx: {
-                    width: 500,
+                    width: 400,
                     backgroundColor: "#121212",
                     color: "#fff",
                 },
             }}
         >
-            <Box sx={{ display: "flex", alignItems: "center", p: 2, pb: 1 }}>
+
+
+            <Box sx={{ display: "flex", alignItems: "center", p: 2, pb: 1,  }}>
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                    Carrito
+                    CARRITO
                 </Typography>
                 <IconButton onClick={onClose} sx={{ color: "#fff" }}>
                     <CloseIcon />
@@ -48,7 +50,7 @@ export default function CartDrawer({ open, onClose }) {
 
             <Divider sx={{ borderColor: "rgba(255,255,255,0.2)" }} />
 
-            <Box sx={{ p: 2, flexGrow: 1 }}>
+            <Box sx={{ p: 2, flex: 1, overflowY: "auto"}}>
                 {isEmpty ? (
                     <Typography variant="body1">
                         Todavía no hay ningún producto agregado al carrito.
@@ -59,20 +61,21 @@ export default function CartDrawer({ open, onClose }) {
                             {carrito.map((prod) => (
                                 <ListItem
                                     key={prod.id}
-                                    sx={{ alignItems: "center" }}
+                                    sx={{ alignItems: "center", position: "relative" }}
                                     disableGutters
                                 >
                                     <Avatar
                                         variant="square"
-                                        src={prod.img}
-                                        alt={prod.title}
-                                        sx={{ width: 40, height: 40, mr: 1 }}
+                                        src={prod.img.url}
+                                        alt={prod.alt}
+                                        sx={{ width: 70, height: 80, mr: 1 }}
                                     />
+
 
                                     <Box
                                         sx={{
                                             flexGrow: 1,
-                                            minWidth: 0,      
+                                            minWidth: 0,
                                             mr: 1,
                                         }}
                                     >
@@ -85,11 +88,11 @@ export default function CartDrawer({ open, onClose }) {
                                                 lineHeight: 1.2,
                                             }}
                                         >
-                                            {prod.title}
+                                            {prod.name}
                                         </Typography>
-                                        
+
                                         <Typography variant="caption" sx={{ color: "#bbb" }}>
-                                            {prod.count}  x   
+                                            {prod.count}  x
                                             {formatPrice(prod.price ?? 0)}
                                         </Typography>
                                     </Box>
@@ -112,14 +115,17 @@ export default function CartDrawer({ open, onClose }) {
                                             -
                                         </Button>
                                     </Box>
-                               
-                               
+
+
                                 </ListItem>
                             ))}
                         </List>
 
-                        <Divider sx={{ my: 2, borderColor: "rgba(255,255,255,0.5)" }} />
+                {/* Footer */}
+                <Box sx={{ p: 2}}>
 
+                 <Divider sx={{ my: 2, borderColor: "rgba(255,255,255,0.5)" }} />
+                
                         <Box
                             sx={{
                                 display: "flex",
@@ -131,7 +137,7 @@ export default function CartDrawer({ open, onClose }) {
                             <Typography variant="h6">{formatPrice(total)}</Typography>
                         </Box>
 
-                        <Box sx={{ mt: 2, display: "flex", gap: 1 }}>
+                        <Box sx={{ mt: 2 }}>
                             <Button
                                 fullWidth
                                 variant="outlined"
@@ -142,7 +148,7 @@ export default function CartDrawer({ open, onClose }) {
                             </Button>
                         </Box>
 
-                        <Box sx={{ mt: 2, display: "flex", gap: 1 }}>
+                        <Box sx={{ mt: 2 }}>
                             <Button
                                 fullWidth
                                 variant="outlined"
@@ -151,12 +157,13 @@ export default function CartDrawer({ open, onClose }) {
                                 onClick={onClose}
                                 to="/checkout"
                             >
-                                Comprar
+                                Finalizar compra
                             </Button>
                         </Box>
-                    </>
+                    </Box>
+            </>
                 )}
-            </Box>
-        </Drawer>
+        </Box>
+        </Drawer >
     );
 }

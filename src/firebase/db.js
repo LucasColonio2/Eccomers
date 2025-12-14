@@ -43,7 +43,7 @@ export const getCategorias = async () => {
 
 //Funcion obtener productos por categoria
 export const getProductsByCategory = async (categoryName, setItems) => { 
- const q = query(collection(db, "Productos"), where("category", "==", categoryName));
+ const q = query(collection(db, "Productos"), where("categoryName", "==", categoryName));
 const productosporcategoria = []
 
 
@@ -73,7 +73,7 @@ if (docSnap.exists()) {
 
 //Funcion para obtener una orden
 export const createOrder = async (order) =>  {
-try {
+    try {
   const docRef = await addDoc(collection(db, "orders"), order)
   console.log("Document written with ID: ", docRef.id);
   return true

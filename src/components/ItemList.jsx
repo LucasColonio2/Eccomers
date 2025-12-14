@@ -1,17 +1,14 @@
 import { Link } from 'react-router';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import CardActionArea from "@mui/material/CardActionArea"
-import CardActions from '@mui/material/CardActions';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { formatPrice } from '../utils/formatPrice';
 import { Box } from '@mui/material';
+import IconButton from "@mui/material/IconButton";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+
 
 export default function ItemList({ items }) {
     return (
@@ -22,6 +19,13 @@ export default function ItemList({ items }) {
             <Grid container
                 spacing={2}
                 justifyContent="center"
+                sx={{
+                    backgroundColor: "#ffffff",
+                    borderRadius: 3,
+                    boxShadow: 2,
+                    py: 4,
+                    px: 3,
+                }}
             >
                 {items.map(item => (
 
@@ -36,7 +40,9 @@ export default function ItemList({ items }) {
                                 color: "inherit",
                                 width: "100%",
                                 maxWidth: 200,
-                                height: 300,          // 🔥 CLAVE
+                                height: 300,    
+                                 borderRadius: 2,
+                                    boxShadow: 2,      
                                 display: "flex",
                                 flexDirection: "column",
                             }}
@@ -45,6 +51,7 @@ export default function ItemList({ items }) {
                                 sx={{
                                     height: 200,
                                     width: '200',
+                                    borderRadius: 3,
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
@@ -64,7 +71,7 @@ export default function ItemList({ items }) {
                             </Box>
 
                             <Box sx={{ width: "100%", p: 2, display: "flex", flexDirection: "column" }}>
-                              
+
                                 <Typography variant="subtitle1" fontWeight={700} noWrap>
                                     {item.name}
                                 </Typography>

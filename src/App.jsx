@@ -1,14 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from './components/Button';
-import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
 import Footer from './components/Footer';
 import NavBarContainer from './components/NavBarContainer';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import Toolbar from '@mui/material/Toolbar';
 import CartContainer from './components/CartContainer';
-import CartWidget from './components/CartWidget';
 import Checkout from './components/Checkout';
 import { Toaster } from 'react-hot-toast';
 import Box from "@mui/material/Box";

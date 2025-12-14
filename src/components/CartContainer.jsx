@@ -10,7 +10,7 @@ export default function CartContainer () {
   
     return (
         <div className="d-flex flex-column">
-            {carrito.map (prod => <p key={prod.id}>{prod.title}</p>)}
+            {carrito.map (prod => <p key={prod.id}>{prod.name}</p>)}
         </div>
 
     )
