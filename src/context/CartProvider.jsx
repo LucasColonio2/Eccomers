@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { primerContext } from "../context/CartContext";
+import { primerContext } from "./CartContext";
+
+
 
 export default function CartProvider({ children }) {
   const [carrito, setCarrito] = useState([]);

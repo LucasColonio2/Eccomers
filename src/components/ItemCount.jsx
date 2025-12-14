@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import Button from 'react-bootstrap/Button'
 import { primerContext } from "../context/CartContext";
+import toast from 'react-hot-toast';
 
 export default function ItemCount({ item }) {
     const [counter, setCounter] = useState(0)
@@ -13,13 +14,16 @@ export default function ItemCount({ item }) {
     const handleRes = () => counter > 0 && setCounter(counter - 1)
 
 
-    const handleaddToCart = () => addToCart({...item, count: counter })
+    const handleaddToCart = () =>{
+        addToCart({...item, count: counter })
+        toast ("Se agrego producto al carrito", {duration: 1000,  removeDelay: 500})
+    } 
 
     return (
-        <div>
+        < div >
             <p>{counter}</p>
 
-            <div className='d-flex gap-1'>
+            <div>
 
 
                 <Button onClick={handleAdd} variant="danger">Sumar</Button>

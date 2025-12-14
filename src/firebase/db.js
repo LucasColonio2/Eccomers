@@ -73,13 +73,13 @@ if (docSnap.exists()) {
 
 //Funcion para obtener una orden
 export const createOrder = async (order) =>  {
-console.log (order)
 try {
   const docRef = await addDoc(collection(db, "orders"), order)
   console.log("Document written with ID: ", docRef.id);
+  return true
 } catch (e) {
   console.error("Error adding document: ", e);
-
+return false
 
 }
 

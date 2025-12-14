@@ -10,26 +10,32 @@ import Toolbar from '@mui/material/Toolbar';
 import CartContainer from './components/CartContainer';
 import CartWidget from './components/CartWidget';
 import Checkout from './components/Checkout';
-
+import { Toaster } from 'react-hot-toast';
+import Box from "@mui/material/Box";
 
 function App() {
   return (
     <BrowserRouter>
-      
-      <NavBarContainer />
 
-      <Routes>
-        <Route path='/' element={<ItemListContainer />}> </Route>
-        <Route path='/detail/:id' element={<ItemDetailContainer/>}> </Route>
+      <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+        <NavBarContainer />
 
-        <Route path='/category/:categoryName' element={<ItemListContainer/>}> </Route>
-        <Route path='/cart' element={<CartContainer/>}> </Route>
-         <Route path="/checkout" element={<Checkout />} />
-      
-      </Routes>
+        <Box component="main" sx={{ flex: 1 }}>
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/detail/:id" element={<ItemDetailContainer />} />
+            <Route path="/category/:categoryName" element={<ItemListContainer />} />
+            <Route path="/cart" element={<CartContainer />} />
+            <Route path="/checkout" element={<Checkout />} />
+          </Routes>
+        </Box>
 
+        <Toaster />
+        <Box sx={{ mt: "auto" }}>
+          <Footer />
+        </Box>
 
-      <Footer />
+      </Box>
     </BrowserRouter>
   )
 }

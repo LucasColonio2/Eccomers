@@ -4,12 +4,14 @@ import { createOrder } from '../firebase/db';
 import { serverTimestamp } from 'firebase/firestore';
 import { useContext } from "react";
 import { primerContext } from "../context/CartContext";
+import { useNavigate } from 'react-router';
+import toast from 'react-hot-toast';
 
 export default function Checkout() {
-const { total ,carrito} = useContext (primerContext)
+const { total ,carrito, clearCart} = useContext (primerContext)
+const navigate = useNavigate ()
 
-
-const handleSumbit = (e) => {
+const handleSumbit = async (e) => {
     e.preventDefault()
 const form = e.target
 const email = form.email.value
@@ -24,8 +26,15 @@ const order = {
 
 }
 
-createOrder (order)
+const ok = await createOrder (order)
     
+if (ok) {
+  clearCart()
+  navigate('/')
+   toast ("Pedido realizado",{duration:500})
+} else {
+  toast ("No se pudo realizar el pedido")
+}
 }
 
 
