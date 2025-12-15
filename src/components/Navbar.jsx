@@ -82,12 +82,12 @@ export default function Navbar({ categorias, onOpenCart }) {
 
                         {categorias.map((cat) => (
                             <MenuItem
-                                to={`/category/${cat}`}
-                                key={cat}
+                                to={`/category/${cat.id}`}
+                                key={cat.id}
                                 component={Link}
                                 onClick={handleClose}
                             >
-                                {cat}
+                                {cat.name}
                             </MenuItem>
                         ))}
 

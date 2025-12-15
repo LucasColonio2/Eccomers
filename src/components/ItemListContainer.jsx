@@ -6,16 +6,16 @@ import { getProducts, getProductsByCategory } from '../firebase/db'
 
 export default function ItemListContainer() {
   const [items, setItems] = useState([])
-  const {categoryName} = useParams()
+  const {categoryId} = useParams()
 
 
 useEffect(() => {
-if (categoryName) {
-      getProductsByCategory(categoryName, setItems);
+if (categoryId) {
+      getProductsByCategory(categoryId, setItems);
     } else {
       getProducts(setItems);
     }
-  }, [categoryName]);
+  }, [categoryId]);
   return (
     <ItemList items={items} />
   );

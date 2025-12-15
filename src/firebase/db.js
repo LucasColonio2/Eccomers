@@ -31,19 +31,21 @@ export const getProducts = async (setItems) => {
 //Funcion obtenercategorias de productos
 export const getCategorias = async () => { 
   const documentocategorias = await getDocs(collection(db, "Categorias"))
-  const categorias = []
+ 
+  const categorias = documentocategorias.docs.map((doc) => ({
+    id: doc.data().id,     // "smartwatches"
+    name: doc.data().name, // "Smartwatches"
+  }))
 
-  documentocategorias.forEach((doc) => {
-    categorias.push(doc.data().name)
-
-    })
+  
     return categorias
   }
 
 
 //Funcion obtener productos por categoria
-export const getProductsByCategory = async (categoryName, setItems) => { 
- const q = query(collection(db, "Productos"), where("categoryName", "==", categoryName));
+export const getProductsByCategory = async (categoryId, setItems) => { 
+ const q = query(collection(db, "Productos"), 
+ where("categoryId", "==" , categoryId));
 const productosporcategoria = []
 
 

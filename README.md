@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 # Ecommerce React App SPA
+=======
+# Kazeover | E-commerce react app
+>>>>>>> b264fe9 (Modificando REDME)
 
 Ecommerce **SPA** de tecnología desarrollado con **React + Vite** y **Firebase (Firestore)**.
 
----
+## SPA link :https://ecommercekazeover.vercel.app/
 
 ## Categorías
 - Portátiles
@@ -13,31 +17,20 @@ Ecommerce **SPA** de tecnología desarrollado con **React + Vite** y **Firebase 
 
 ---
 
-## Tecnologías y dependencias
+## Tech Stack
 
-### Core
-- **React**  
-  https://react.dev/
-- **React DOM**  
-  https://react.dev/reference/react-dom
-- **Vite**  
-  https://vite.dev/
+### Frontend
+- **React (UI) + Vite (build/tooling)**   
+https://react.dev/
+- **React Bootstrap + MUI (UI)**
+  https://react-bootstrap.github.io/
+  https://mui.com/material-ui/
+- **Context API (or Redux) for global state (cart + auth)**
 
 ### Routing
-- **React Router**  
-  https://reactrouter.com/
+- **React Router (routing)**
+https://reactrouter.com/
 
-### UI
-- **Bootstrap**  
-  https://getbootstrap.com/
-- **React Bootstrap**  
-  https://react-bootstrap.github.io/
-- **Material UI (MUI)**  
-  https://mui.com/material-ui/
-- **MUI Icons**  
-  https://mui.com/material-ui/material-icons/
-- **Emotion (styling)**  
-  https://emotion.sh/docs/introduction
 
 ### Backend / BaaS
 - **Firebase**  
@@ -45,15 +38,11 @@ Ecommerce **SPA** de tecnología desarrollado con **React + Vite** y **Firebase 
 - **Cloud Firestore**  
   https://firebase.google.com/docs/firestore
 
-### UX
-- **react-hot-toast**  
-  https://react-hot-toast.com/
 
-### Calidad (dev)
-- **ESLint**  
-  https://eslint.org/
-- **@vitejs/plugin-react**  
-  https://github.com/vitejs/vite-plugin-react
+### Tooling & Quality
+- Vite
+- npm
+
 
 ---
 
@@ -99,24 +88,24 @@ Ecommerce **SPA** de tecnología desarrollado con **React + Vite** y **Firebase 
 ### Colección: Categorias
 ```js
 {
-  name: "Portátiles"
+  id: "portatiles",        // slug (used for routing & queries)
+  name: "Portátiles"       // display 
 }
-```
 
 ### Colección: Productos
 ```js
 {
-  categoryId: "mobiles",
-  categoryName: "Móviles",
+  categoryId: "mobiles",   // references Categories.id
+  categoryName: "Móviles", // UI only
+  name: "Iphone 17",
   description: "Super mega potente",
   img: {
     alt: "Iphone 17",
     url: "https://..."
   },
-  isActive: true,
-  name: "Iphone17",
   price: 2800000,
-  stock: 5
+  stock: 5,
+  isActive: true
 }
 ```
 
@@ -126,74 +115,114 @@ Ecommerce **SPA** de tecnología desarrollado con **React + Vite** y **Firebase 
   buyer: {
     email: "cliente@email.com",
     name: "Nombre Apellido",
-    phone: "1122334455"
+    phone: "1123456789"
   },
-  date: "2025-12-13T...",
   items: [
     {
-      id: "productoId",
-      name: "Notebook 15 Full HD",
-      description: "Equipo potente y elegante",
-      img: "https://...",
-      category: "Portátiles",
-      count: 1,
-      price: 1450000
+      id: "abc123",
+      name: "Iphone 17",
+      price: 2800000,
+      quantity: 1
     }
   ],
-  total: 1450000
+  total: 2800000,
+  createdAt: Timestamp
 }
 ```
 
+
+## 🚀 Getting Started
+
+### Setup & Installation
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/LucasColonio2/Eccomers
+   cd Eccomers
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the Development Server**
+
+   ```bash
+   npm start
+   ```
 ---
 
-## Scripts
+## Project Structure
 
-```bash
-npm install
-npm run dev
-npm run build
-npm run preview
-npm run lint
-```
+- **src/**
+  - **assets/** — Recursos estáticos (imágenes, íconos)
+  - **components/** — Componentes UI y contenedores
+    - `Navbar.jsx`
+    - `NavBarContainer.jsx`
+    - `ItemList.jsx`
+    - `ItemListContainer.jsx`
+    - `ItemDetail.jsx`
+    - `ItemDetailContainer.jsx`
+    - `CartDrawer.jsx`
+    - `CartContainer.jsx`
+    - `CartWidget.jsx`
+    - `Checkout.jsx`
+    - `Footer.jsx`
+  - **context/** — Estado global (React Context)
+    - `CartContext.jsx`
+    - `CartProvider.jsx`
+  - **firebase/** — Configuración Firebase + capa de acceso a datos
+    - `config.js`
+    - `db.js`
+  - **hoc/** — Higher Order Components
+    - `withLoading.jsx`
+  - **style/** — Estilos (CSS Modules)
+    - `Navbar.module.css`
+    - `Footer.module.css`
+  - **utils/** — Utilidades/helpers
+    - `formatPrice.js`
+  - `App.jsx` — Root de la app + routing
+  - `main.jsx` — Entry point (Vite)
+  - `index.css` — Estilos globales
 
----
-
-## Estructura del proyecto
-
-```txt
-src/
-  components/
-    Navbar/
-    ProductCard/
-    ProductGrid/
-    CartDrawer/
-  pages/
-    Home/
-    Category/
-    ProductDetail/
-    Checkout/
-  context/
-    CartContext.jsx
-  firebase/
-    firebaseConfig.js
-    products.service.js
-    categories.service.js
-    orders.service.js
-  utils/
-    formatPrice.js
-  App.jsx
-  main.jsx
-```
 
 ---
 
-## Capturas
-Agregar imágenes en `docs/screenshots/`:
+## Screenshots
 
 ```md
+### Home / Product Listing
+Vista principal con listado de productos y acceso a categorías y carrito.
 ![Home](docs/screenshots/home.png)
+
+
+### Category Filtering
+Filtrado de productos por categoría utilizando rutas dinámicas.
+![Category](docs/screenshots/category.png)
+
+### Product Detail
+Vista de detalle del producto con información completa, selector de cantidad y acción de agregar al carrito.
+
+![Product Detail](docs/screenshots/product-detail.png)
+
+
+
+### Cart Drawer
+Drawer lateral con productos agregados al carrito, control de cantidades y total.
 ![Carrito](docs/screenshots/cart-drawer.png)
+![Carrito](docs/screenshots/cart-drawer2.png)
+
+
+### Checkout
+Formulario de checkout con validación y generación de orden en Firestore.
 ![Checkout](docs/screenshots/checkout.png)
-![Firestore Productos](docs/screenshots/firestore-products.png)
+
+
+### Order Persistence (Firestore)
+Ejemplo de orden persistida en Firestore luego de completar el checkout.
 ![Firestore Orders](docs/screenshots/firestore-orders.png)
 ```
+## SPA link :https://ecommercekazeover.vercel.app/
