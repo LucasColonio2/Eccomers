@@ -191,34 +191,34 @@ https://reactrouter.com/
 
 ### Home / Product Listing
 Vista principal con listado de productos y acceso a categorías y carrito.
-![Home](docs/screenshots/home.png)
+![Home](/src/docs/screenshots/home.png)
 
 
 ### Category Filtering
 Filtrado de productos por categoría utilizando rutas dinámicas.
-![Category](docs/screenshots/category.png)
+![Category](/src/docs/screenshots/category.png)
 
 ### Product Detail
 Vista de detalle del producto con información completa, selector de cantidad y acción de agregar al carrito.
 
-![Product Detail](docs/screenshots/product-detail.png)
+![Product Detail](/src/docs/screenshots/product-detail.png)
 
 
 
 ### Cart Drawer
 Drawer lateral con productos agregados al carrito, control de cantidades y total.
-![Carrito](docs/screenshots/cart-drawer.png)
-![Carrito](docs/screenshots/cart-drawer2.png)
+![Carrito](/src/docs/screenshots/cart-drawer.png)
+![Carrito](/src/docs/screenshots/cart-drawer2.png)
 
 
 ### Checkout
 Formulario de checkout con validación y generación de orden en Firestore.
-![Checkout](docs/screenshots/checkout.png)
+![Checkout](/src/docs/screenshots/checkout.png)
 
 
 ### Order Persistence (Firestore)
 Ejemplo de orden persistida en Firestore luego de completar el checkout.
-![Firestore Orders](docs/screenshots/firestore-orders.png)
+![Firestore Orders](/src/docs/screenshots/firestore-orders.png)
 
 
 ## SPA link :https://ecommercekazeover.vercel.app/
