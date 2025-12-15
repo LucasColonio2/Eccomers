@@ -1,4 +1,4 @@
-# Kazeover Ecommerce (React SPA)
+# Ecommerce React App SPA
 
 Ecommerce **SPA** de tecnología desarrollado con **React + Vite** y **Firebase (Firestore)**.
 
