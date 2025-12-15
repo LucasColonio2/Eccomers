@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 # Ecommerce React App SPA
 =======
-# Kazeover | E-commerce react app
->>>>>>> b264fe9 (Modificando REDME)
-
 Ecommerce **SPA** de tecnología desarrollado con **React + Vite** y **Firebase (Firestore)**.
 
 ## SPA link :https://ecommercekazeover.vercel.app/
