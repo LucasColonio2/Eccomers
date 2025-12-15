@@ -1,5 +1,5 @@
 # Ecommerce React App SPA
-=======
+
 Ecommerce **SPA** de tecnología desarrollado con **React + Vite** y **Firebase (Firestore)**.
 
 ## SPA link :https://ecommercekazeover.vercel.app/
@@ -189,7 +189,6 @@ https://reactrouter.com/
 
 ## Screenshots
 
-```md
 ### Home / Product Listing
 Vista principal con listado de productos y acceso a categorías y carrito.
 ![Home](docs/screenshots/home.png)
@@ -220,5 +219,6 @@ Formulario de checkout con validación y generación de orden en Firestore.
 ### Order Persistence (Firestore)
 Ejemplo de orden persistida en Firestore luego de completar el checkout.
 ![Firestore Orders](docs/screenshots/firestore-orders.png)
-```
+
+
 ## SPA link :https://ecommercekazeover.vercel.app/
